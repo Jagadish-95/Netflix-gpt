@@ -1,19 +1,16 @@
 import React, { useState, useRef } from 'react'
 import Header from './Header'
 import { checkValiadate } from '../Utils/Validate'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword,  updateProfile   } from "firebase/auth";
 import { auth } from '../Utils/firebase';
-import { useNavigate } from 'react-router-dom';
-import { updateProfile } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { addUser } from '../Utils/userSlice';
+import { AVATAR_LOGO, BG_IMAGE } from '../Utils/constants';
 
 const Login = () => {
   const dispatch = useDispatch()
-
 const [isSignIn, setIsSignin] = useState(true);
 const [errorMessage, setErrorMessage] = useState(null);
-const navigate = useNavigate();
 const email = useRef(null)
 const password = useRef(null)
 const name = useRef(null)
@@ -36,13 +33,13 @@ const handleClick= () => {
     // sign up logic
 
 
-createUserWithEmailAndPassword(auth, email.current.value, password.current.value, name.current.value)
+createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
   .then((userCredential) => {
     
     const user = userCredential.user;
 
 updateProfile(user, {
-  displayName: name.current.value, photoURL: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+  displayName: name.current.value, photoURL: AVATAR_LOGO
 }).then(() => {
   const {uid, email, displayName, photoURL} = auth.currentUser;
   dispatch(addUser({uid : uid, email : email, displayName : displayName, photoURL : photoURL}));
@@ -54,8 +51,8 @@ updateProfile(user, {
   // ...
   setErrorMessage(error)
 });
-    console.log(user);
-    navigate("/browse")
+    // console.log(user);
+    
     
   })
   .catch((error) => {
@@ -73,8 +70,8 @@ signInWithEmailAndPassword(auth,email.current.value, password.current.value)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
-    navigate("/browse")
+    // console.log(user);
+    
     // ...
   })
   .catch((error) => {
@@ -91,7 +88,7 @@ signInWithEmailAndPassword(auth,email.current.value, password.current.value)
     <div>
      <Header/>
      <div className='absolute'>
-     <img src='https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/065df910-dec3-46ae-afa8-7ad2b52dce40/IN-en-20240506-popsignuptwoweeks-perspective_alpha_website_medium.jpg'
+     <img src={BG_IMAGE}
      alt='logo' />
      </div>
      <form onSubmit={(e)=>e.preventDefault()} className=' w-3/12 absolute p-12 bg-black text-white my-36 mx-auto right-0 left-0 rounded-lg opacity-80'>

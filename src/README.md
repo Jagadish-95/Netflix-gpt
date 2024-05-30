@@ -5,13 +5,26 @@ Bg images,
 Signin Signout Form and toggle functionality
 Form Validations using RegEx
 UseRef
-FireBase login and Autehntication
-create signup and signin
-redux store enabled
-userSlice Created to store User credentials
-navigation to browse page
-signout Enabled
-updated user profile with dispalyname and photourl
-Bugfix store update with name and Photo
+FireBase SepUP login and Autehntication
+Create signup and signin API drawn
+Deploying appication into Production
+Redux store enabled
+UserSlice Created to store User credentials
+Navigation to browse page after signin & signup
+Signout Enabled
+Updated User Profile with dispalyname and photourl
+Bugfix - Store update with name and Photo
+BugFix - If not signin don't navigate to browse page directly
+Unmounting useEffect through unSubscribe
+Add HardCoded Values to Constant.js
+Registerd with TMDB API and create app and get Access Token
+Fecth NowPlayingMovies from TMDB API using Custom Hook
+Data Added to movieSlice in Store
+Planning for Main & Secondary Container
+Display title & bg-trialer on UI using fetchVideos
+Embedded Trailer from youTube iFrame through key and make it autoplay and mute
+Using Tailwindcss made UI look awesome
+
+
 
 
