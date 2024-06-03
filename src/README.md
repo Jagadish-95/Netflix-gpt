@@ -24,6 +24,16 @@ Planning for Main & Secondary Container
 Display title & bg-trialer on UI using fetchVideos
 Embedded Trailer from youTube iFrame through key and make it autoplay and mute
 Using Tailwindcss made UI look awesome
+Built Secondary Conatiner
+Added Reducers for nowPlaying, upcoming, Popular, Toprated
+Also built Custom Hooks
+Used TMDB IMG url & added to constants 
+Built files Movielist, MovieCard
+
+
+
+
+Note: Mandatory do optional chaining and set conditional rendering otherwise get error as {"typeerror: cannot read properties of null (reading 'map')"}
 
 
 
