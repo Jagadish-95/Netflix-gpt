@@ -7,6 +7,7 @@ import ErrorPage from './ErrorPage';
 
 
 
+
 const Body = () => {
     
     const appRouter = createBrowserRouter([
@@ -22,6 +23,7 @@ const Body = () => {
             path: "/error",
             element: <ErrorPage/>,
         },
+       
     ])
 
    
